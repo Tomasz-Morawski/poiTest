@@ -11,13 +11,15 @@ import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.WorkbookUtil;
 import org.apache.poi.xssf.usermodel.DefaultIndexedColorMap;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class BaseFileHandler {
 	public void writeXslx(String path, String[][] content) {
-		Workbook workbook = new HSSFWorkbook();
+		Workbook workbook = new XSSFWorkbook();
 		workbook.getCreationHelper();
 		
 		Sheet sheet= workbook.createSheet();
@@ -50,8 +52,9 @@ public class BaseFileHandler {
 		headerFont.setBold(true);
 		headerFont.setFontName("Calibri");
 		styleHeader.setFont(headerFont);
-
+		//workbook.write(arg0);
 		
+		//pomoc przy filtrowaniu
 		sheet.createFreezePane(0, 1);
 	}
 
